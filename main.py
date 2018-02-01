@@ -11,8 +11,8 @@ def calc(x, cube_size=3, sigma=15):
     x = np.array(x)
     dims = x.shape
     cube_size = int(cube_size)
-    npad = ((cube_size * 2 - 1 - dims[0], 0), (cube_size - 1, cube_size - 1), (cube_size - 1, cube_size - 1))
-    x = np.pad(x, pad_width=npad, mode='symmetric')
+    # npad = ((cube_size * 2 - 1 - dims[0], 0), (cube_size - 1, cube_size - 1), (cube_size - 1, cube_size - 1))
+    # x = np.pad(x, pad_width=npad, mode='symmetric')
 
     buffer = (cube_size - 1) // 2
 
@@ -65,7 +65,7 @@ def calc(x, cube_size=3, sigma=15):
 
     return coherence
 
-def fetch(sliceID, ds_extents, cube_size):
+def fetch(sliceID, ds_extents, cube_size, sigma):
     num_slices_before = int(cube_size-1)
     num_slices_after = int(cube_size-1)
     section_type, section_value = sliceID
