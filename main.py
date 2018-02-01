@@ -29,30 +29,22 @@ def calc(x, cube_size=3, sigma=15):
         G = (2*np.pi*sigma)**(3/2) * G
         return G.reshape([cube_size,cube_size,cube_size])
 
+    CC1 = np.zeros((dims[1],dims[2]))
+    CC2 = np.zeros((dims[1],dims[2]))
+    CC3 = np.zeros((dims[1],dims[2]))
 
-    CC1 = np.zeros() # should be size of 2D input in x
-    CC2 = np.zeros() # should be size of 2D input in x
-    CC3 = np.zeros() # should be size of 2D input in x
-
-
-
-    # MUST REARRANGE X HERE
-
-      # G = np.zeros((cube_size,cube_size,cube_size))
     G = gaussian_kernel(cube_size)
 
-    for i in xrange(1, 10, 2):
-        for j in xrange():
-            for k in xrange():
+    for i in xrange(buffer,dims[1]-buffer):
+        for j in xrange(buffer,dims[2]-buffer):
+            aCube = x[:cube_size, i-buffer:i+buffer+1, j-buffer:j+buffer+1]
+            aCube = aCube*G
 
-    for i in xrange(dims[1]):
-        for j in xrange(dims[2]):
-     aCube =
+            D1 = unfold_tensor(aCube,1)
+            colMeans = np.mean(D1, axis=0)
+            D1_tilde = D1 - colMeans
 
-
-
-
-
+            CC1[i,j] = lambda1/np.trace(C1) ???
 
 
 
@@ -60,13 +52,15 @@ def calc(x, cube_size=3, sigma=15):
 
 
 
-    def dissimilarity(x1, x2):
-        x1 = x1 - np.mean(x1)
-        x2 = x2 - np.mean(x2)
-        temp1 = np.fft.fftn(np.abs(x1 - x2), axes=(0, 1, 2))
-        temp2 = np.fft.fftn(np.abs(temp1), axes=(0, 1, 2))
-        temp3 = np.abs(temp2)
-        return np.mean(temp3)
+
+
+
+
+
+
+
+
+
 
     for i in range(dims[1]):
         for j in range(dims[2]):
