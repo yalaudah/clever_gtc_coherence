@@ -11,8 +11,6 @@ def calc(x, cube_size=3, sigma=15):
     x = np.array(x)
     dims = x.shape
     cube_size = int(cube_size)
-    # npad = ((cube_size * 2 - 1 - dims[0], 0), (cube_size - 1, cube_size - 1), (cube_size - 1, cube_size - 1))
-    # x = np.pad(x, pad_width=npad, mode='symmetric')
 
     buffer = (cube_size - 1) // 2
 
